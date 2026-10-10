@@ -1,31 +1,96 @@
+# Chirpy theme configuration
+theme: jekyll-theme-chirpy
+
+lang: ko-KR
+timezone: Asia/Seoul
+
 title: 모모의 공부일지
-description: Just another documentation theme compatible with GitHub Pages
+tagline: 개발과 공부를 기록하는 공간
+description: 개발 공부와 기술 기록을 정리하는 블로그입니다.
 
-theme: null
+url: "https://cocoamo.github.io"
+baseurl: ""
 
-# debug:
-#   compress: true
-#   dist: false
-#   shortcodes: true
+github:
+  username: cocoamo
 
-readme_index:
-  with_frontmatter: true
+social:
+  name: 모모의 공부일지
+  links:
+    - https://github.com/cocoamo
+
+theme_mode:
+toc: true
+paginate: 10
 
 plugins:
-  - jemoji
-  - jekyll-avatar
-  - jekyll-mentions
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-include-cache
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    block:
+      line_numbers: true
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
 
 exclude:
-  - Makefile
-  - CNAME
-  - LICENSE
-  - update.sh
+  - "*.gem"
+  - "*.gemspec"
   - Gemfile
   - Gemfile.lock
-  - requirements.txt
+  - README.md
+  - LICENSE
   - node_modules
   - package.json
   - package-lock.json
   - webpack.config.js
-  - jekyll-rtd-theme.gemspec
+  - update.sh
+  - requirements.txt
