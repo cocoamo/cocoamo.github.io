@@ -17,7 +17,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-브라우저에서 `http://127.0.0.1:4000`에 접속하면 됩니다.
+브라우저에서 http://127.0.0.1:4000 에 접속하면 됩니다.
 
 ## 배포
 
